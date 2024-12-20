@@ -3,18 +3,18 @@ import Terser from 'terser-webpack-plugin';
 export default {
   entry: './src/index.js',
   output: {
-    filename: 'webpack.js',
+    filename: 'rspack-terser.js',
     clean: false
   },
   optimization: {
     minimize: true,
     minimizer: [
       new Terser( { 
-        minify: Terser.swcMinify,
+        minify: Terser.terserMinify,
         terserOptions: {
-          compress: {
-            passes: 0
-          },
+					compress: {
+						passes: 0
+					},
           format: {
             comments: false
           }

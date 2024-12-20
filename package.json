@@ -7,12 +7,17 @@
     "bp": "parcel build parcel.html --no-source-maps",
     "brd": "rolldown -c rolldown.config.mjs",
     "bru": "rollup -c rollup.config.mjs",
-    "brp": "rspack build",
     "bv": "vite build",
+    "brp": "rspack build",
     "bw": "webpack --mode=production",
-    "build": "npm run be && npm run bp && npm run brd && npm run bru && npm run brp && npm run bv && npm run bw"
+    "bwt": "webpack --mode=production --config webpack-terser.config.mjs",
+    "brpt": "webpack --mode=production --config rspack-terser.config.mjs",
+    "build": "npm run be && npm run bp && npm run brd && npm run bru && npm run brp && npm run brpt && npm run bv && npm run bw && npm run bwt"
   },
   "dependencies": {
+    "@babel/core": "^7.26.0",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rspack/core": "^1.1.6",
     "chart.js": "^4.4.7",
     "ckeditor5": "^44.0.0",
     "d3": "^7.9.0",

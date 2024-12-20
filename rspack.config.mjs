@@ -1,4 +1,5 @@
 import { defineConfig } from '@rspack/cli';
+import { SwcJsMinimizerRspackPlugin } from '@rspack/core';
 
 // The commented out options are valid, but for some reason increase the bundle size by a lot.
 
@@ -11,5 +12,19 @@ export default defineConfig({
 		// chunkLoading: 'import',
 		filename: 'rspack.js',
 		clean: false
+	},
+	optimization: {
+		minimizer: [
+			new SwcJsMinimizerRspackPlugin({
+				minimizerOptions: {
+					compress: {
+						passes: 0
+					},
+					format: {
+						comments: false,
+					},
+				}
+			})
+		]
 	}
 } );

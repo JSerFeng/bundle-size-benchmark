@@ -1,7 +1,7 @@
 import { defineConfig } from 'rollup';
 import commonjs from '@rollup/plugin-commonjs';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
-import esbuild from 'rollup-plugin-esbuild';
+import terser from '@rollup/plugin-terser'
 
 export default defineConfig( {
 	input: 'src/index.js',
@@ -18,11 +18,19 @@ export default defineConfig( {
 			browser: true,
 			preferBuiltins: false
 		} ),
-		esbuild( {
-			include: /\.js$/,
-			minify: true,
-			legalComments: 'none',
-			target: 'es2022'
-		} )
+		terser({
+			format: {
+        comments: false,
+      },
+			compress: {
+				passes: 0
+			}
+		})
+		// esbuild( {
+		// 	include: /\.js$/,
+		// 	minify: true,
+		// 	legalComments: 'none',
+		// 	target: 'es2022'
+		// } )
 	]
 } );

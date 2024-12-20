@@ -1,21 +1,30 @@
-import { defineConfig } from 'vite';
+import { defineConfig } from "vite";
 
-export default defineConfig( {
+export default defineConfig({
   build: {
-    target: 'es2022',
+    target: "es2022",
     emptyOutDir: false,
-    assetsDir: '.',
+    assetsDir: ".",
     rollupOptions: {
       input: {
-        app: './vite.html'
+        app: "./vite.html",
       },
       output: {
-        entryFileNames: 'vite.js',
-        format: 'es'
-      }
-    }
+        entryFileNames: "vite.js",
+        format: "es",
+      },
+    },
+    minify: "terser",
+    terserOptions: {
+      compress: {
+        passes: 0,
+      },
+      format: {
+        comments: false,
+      },
+    },
   },
   esbuild: {
-    legalComments: 'none'
+    legalComments: "none",
   },
-} );
+});
