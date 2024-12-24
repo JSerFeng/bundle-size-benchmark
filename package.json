@@ -8,16 +8,19 @@
     "brd": "rolldown -c rolldown.config.mjs",
     "bru": "rollup -c rollup.config.mjs",
     "bv": "vite build",
-    "brp": "rspack build",
     "bw": "webpack --mode=production",
     "bwt": "webpack --mode=production --config webpack-terser.config.mjs",
-    "brpt": "webpack --mode=production --config rspack-terser.config.mjs",
-    "build": "npm run be && npm run bp && npm run brd && npm run bru && npm run brp && npm run brpt && npm run bv && npm run bw && npm run bwt"
+    "brp": "rspack --mode=production build",
+    "brpt": "rspack --mode=production --config rspack-terser.config.mjs",
+    "brptw": "rspack --mode=production --config rspack-t-swc.config.mjs",
+    "build": "rm -rf dist && npm run be && npm run bp && npm run brd && npm run bru && npm run brp && npm run brptw && npm run brpt && npm run bv && npm run bw && npm run bwt && node get_table.js"
   },
   "dependencies": {
     "@babel/core": "^7.26.0",
+    "@rollup/plugin-replace": "^6.0.2",
     "@rollup/plugin-terser": "^0.4.4",
-    "@rspack/core": "^1.1.6",
+    "@rspack/core": "/Users/bytedance/libs/rspack/packages/rspack",
+    "@swc/core": "^1.10.1",
     "chart.js": "^4.4.7",
     "ckeditor5": "^44.0.0",
     "d3": "^7.9.0",
@@ -41,5 +44,11 @@
     "vite": "^6.0.3",
     "webpack": "^5.96.1",
     "webpack-cli": "^5.1.4"
+  },
+  "pnpm": {
+    "overrides": {
+      "@swc/core": "nightly",
+      "@rspack/core": "/Users/bytedance/libs/rspack/packages/rspack"
+    }
   }
 }

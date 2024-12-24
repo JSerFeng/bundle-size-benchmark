@@ -2,10 +2,11 @@ const path = require('path')
 const fs = require('fs')
 
 const files = [
-  ["webpack", /webpack\.js/],
+  ["webpack terser swc", /webpack\.js/],
   ["webpack terser", /webpack-terser\.js/],
-  ["rspack", /rspack\.js/],
+  ["rspack swc", /rspack\.js/],
   ["rspack terser", /rspack-terser\.js/],
+  ["rspack terser swc", /rspack-terser-swc\.js/],
   ["rollup", /rollup\.js/],
   ["rolldown", /rolldown\.js/],
   ["vite", /vite\.js/],

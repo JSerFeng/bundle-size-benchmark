@@ -10,6 +10,9 @@ export default defineConfig({
     minify: true,
     comments: "none",
   },
+  define: {
+		'process.env.NODE_ENV': '"production"',
+	},
   plugins: [
     terser({
       compress: {

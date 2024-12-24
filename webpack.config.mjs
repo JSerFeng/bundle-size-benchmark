@@ -15,6 +15,7 @@ export default {
           compress: {
             passes: 0
           },
+          // mangle: false,
           format: {
             comments: false
           }

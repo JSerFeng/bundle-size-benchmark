@@ -7,7 +7,6 @@ export default {
     clean: false
   },
   optimization: {
-    minimize: true,
     minimizer: [
       new Terser( { 
         minify: Terser.terserMinify,
@@ -18,7 +17,7 @@ export default {
           format: {
             comments: false
           }
-        }
+        },
       } )
     ]
   }
